@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudyNest | Virtual Study Room Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="auth" hidden>
+  <section class="hero">
+    <h1>Study<span>Nest</span></h1>
+    <p>Find a room, start the timer, and watch your streak grow. Study together, track everything.</p>
+    <ul><li>Join public or private study rooms</li><li>Pomodoro timer, shared tasks and room chat</li><li>Progress charts, streaks and badges</li></ul>
+  </section>
+  <form id="authForm" class="card" novalidate>
+    <div class="tabs"><button type="button" data-m="login" class="on">Log in</button><button type="button" data-m="reg">Register</button></div>
+    <input name="name" id="fn" placeholder="Full name" autocomplete="name" hidden>
+    <input name="email" type="email" placeholder="Email" autocomplete="email" required>
+    <input name="pass" type="password" placeholder="Password (min 6, letters + numbers)" autocomplete="current-password" required>
+    <select name="role" id="fr" aria-label="Role" hidden><option value="learner">I am a learner</option><option value="admin">I am an admin</option></select>
+    <p id="err" class="err" role="alert"></p>
+    <button class="btn">Continue</button>
+    <small class="mut">Demo: learner@lpu.demo / Learner@123<br>Admin: admin@lpu.demo / Admin@123</small>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <nav id="nav" aria-label="Main"></nav>
+  <main>
+    <header>
+      <input id="gs" type="search" placeholder="Search rooms…  press /" aria-label="Search rooms">
+      <button id="th" class="ic" data-act="theme" aria-label="Toggle theme">◐</button>
+      <button id="bell" class="ic" data-act="bell" aria-label="Notifications">🔔<em id="bc" hidden></em></button>
+      <div id="bp" class="pop" hidden></div>
+      <a id="me" href="#/profile" aria-label="Profile"></a>
+    </header>
+    <section id="view" aria-live="polite"></section>
+  </main>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+<dialog id="dlg"></dialog>
+
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
